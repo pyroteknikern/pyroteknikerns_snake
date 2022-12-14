@@ -12,7 +12,7 @@ ded = 0
 win = pygame.display.set_mode((WIDTH+ player_width, HEIGHT+ player_height))
 pygame.display.set_caption("snake")
 clock = pygame.time.Clock()
-img = pygame.image.load("D:\\programmering\\snake_windows\\image.png").convert()
+img = pygame.image.load("pyroteknikerns_snake\\image.png").convert()
 pygame.font.init()    
 font = pygame.font.SysFont('Comic Sans MS', 30)
 font2 = pygame.font.SysFont('Comic Sans MS', 20)
@@ -24,7 +24,7 @@ class Snake:
         self.dir = "right"
         self.score = 0
         self.namelist = []
-        with open("highscore.txt", "r") as f:
+        with open("pyroteknikerns_snake\\highscore.txt", "r") as f:
             self.scorelist = f.readlines()
             for i, line in enumerate(self.scorelist):
                 self.scorelist[i] = line.split("\t")
@@ -50,7 +50,7 @@ class Snake:
 
     def checkHighscore(self):
         global ded
-        with open("highscore.txt", "r") as f:
+        with open("pyroteknikerns_snake\\highscore.txt", "r") as f:
             lines = f.readlines()
             scr = []
             for i, line in enumerate(lines):
@@ -113,7 +113,7 @@ class Fruit(Snake):
         pygame.draw.rect(win, (255,255,255), pygame.Rect(self.pos[0]*player_width, self.pos[1]*player_height, player_width, player_height))
 
 def save(score, name):
-    with open("highscore.txt", "a") as f:
+    with open("pyroteknikerns_snake\\highscore.txt", "a") as f:
         f.write(str(score)+"\t"+name+"\n")  
 
 def main():
